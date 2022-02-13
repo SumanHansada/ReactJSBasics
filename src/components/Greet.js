@@ -1,6 +1,7 @@
 import React from "react";
 
 const Greet = (props) => {
+  // You cannot change props under any circumstances (Immutable)
   console.log(props);
   return (
     <div>
