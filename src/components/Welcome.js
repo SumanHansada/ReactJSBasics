@@ -19,11 +19,11 @@ export class Welcome extends Component {
    * - use this.state to access state (Class Component)
    */
   render() {
-    console.log(this.props);
+    const { name, heroName } = this.props;
     return (
       <div>
         <h1>
-          Welcome {this.props.name} a.k.a {this.props.heroName}
+          Welcome {name} a.k.a {heroName}
         </h1>
       </div>
     );
