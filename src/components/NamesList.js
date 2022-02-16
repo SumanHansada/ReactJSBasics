@@ -3,7 +3,11 @@ import Person from "./Person";
 
 function NamesList() {
   const names = ["Bruce", "Clark", "Diana"];
-  const nameList = names.map((name) => <h2>{name}</h2>);
+  // Use index as keys only when (All 3 must be satisfied)
+  // - The items in your list do not have unique id
+  // - The list is static list and will not change
+  // - The list will never be reordered or filtered
+  const nameList = names.map((name, index) => <h2 key={index}>{name}</h2>);
   const persons = [
     {
       id: 1,
@@ -31,7 +35,7 @@ function NamesList() {
   const personList = persons.map((person) => (
     <Person key={person.id} person={person} />
   ));
-  return <div>{personList}</div>;
+  return <div>{nameList}</div>;
 }
 
 export default NamesList;
