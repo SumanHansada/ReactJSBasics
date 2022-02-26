@@ -1,0 +1,4 @@
+/* Normal CSS can lead to CSS conflicts */
+.error {
+  color: red;
+}
