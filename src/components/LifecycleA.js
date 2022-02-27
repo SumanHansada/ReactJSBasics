@@ -42,6 +42,77 @@ class LifecycleA extends Component {
   }
 
   /**
+   * Dictates if the component should re-render or not.
+   * By default, all the components re-render when the props they receive or state change.
+   * This method can prevent the default behavior by returning false.
+   * It is used for performance optimizations.
+   * Do not cause side-effects here, Ex - HTTP requests, DOM manipulation, etc.
+   * @param {object} nextProps
+   * @param {object} nextState
+   * @returns {boolean}
+   */
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("LifecycleA shouldComponentUpdate");
+    return true;
+  }
+
+  /**
+   * Called right before the virtual DOM are to be reflected in the DOM.
+   * Capture some information from DOM.
+   * Method will either return null or return a value.
+   * Return value will be passed as a third argument to the componentDidUpdate method.
+   * @param {object} prevProps
+   * @param {object} prevState
+   * @returns {null|any}
+   */
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log("LifecycleA getSnapshotBeforeUpdate");
+    return null;
+  }
+
+  /**
+   * Called after the render is finished in re-render cycle.
+   * Can be used to perform side-effects, Ex - HTTP requests, DOM manipulation, etc.
+   * Compare prevProps and prevState with this.props and this.state. and then make HTTP requests, DOM manipulation, etc.
+   * @param {object} prevProps
+   * @param {object} prevState
+   * @param {null | any} snapshot
+   */
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("LifecycleA componentDidUpdate");
+  }
+
+  /**
+   * This method is called immediately before a component is unmounted and destroyed from the DOM.
+   * Used for cancelling any network requests, removing event handlers, cancelling subscriptions, clear timer etc.
+   * Do not call setState here.
+   */
+  componentWillUnmount() {
+    console.log("LifecycleA componentWillUnmount");
+  }
+
+  /**
+   * When there is any error in rendering or lifecycle method or constructor of child component.
+   * @param {any} error
+   */
+  static getDerivedStateFromError(error) {}
+
+  /**
+   * When there is any error in rendering or lifecycle method or constructor of child component.
+   * @param {any} error
+   * @param {any} info
+   */
+  componentDidCatch(error, info) {
+    console.log("LifecycleA componentDidCatch");
+  }
+
+  changeState = () => {
+    this.setState({
+      name: "Kumar",
+    });
+  };
+
+  /**
    * Only required method in class component.
    * We simply read here this.props and this.state and return the required JSX.
    * render method is pure function, for given state and props, JSX should be always the same.
@@ -53,7 +124,8 @@ class LifecycleA extends Component {
     console.log("LifecycleA render");
     return (
       <div>
-        LifecycleA
+        <div>LifecycleA</div>
+        <button onClick={this.changeState}>Change state</button>
         <LifecycleB />
       </div>
     );
