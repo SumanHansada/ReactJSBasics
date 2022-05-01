@@ -20,11 +20,13 @@ import LifecycleA from "./components/LifecycleA";
 import InputBox from "./components/InputBox";
 import FragmentDemo from "./components/FragmentDemo";
 import Table from "./components/Table";
+import ParentComp from "./components/ParentComp";
 
 function App() {
   return (
     <div className="App">
-      <Table />
+      <ParentComp />
+      {/* <Table /> */}
       {/* <FragmentDemo /> */}
       {/* <InputBox /> */}
       {/* <LifecycleA /> */}
