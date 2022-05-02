@@ -36,11 +36,13 @@ import CounterTwo from "./components/CounterTwo";
 import ComponentC from "./components/ComponentC";
 import { UserProvider } from "./components/UserContext";
 import PostList from "./components/PostList";
+import PostForm from "./components/PostForm";
 
 function App() {
   return (
     <div className="App">
-      <PostList />
+      <PostForm />
+      {/* <PostList /> */}
       {/* <UserProvider value="Suman">
         <ComponentC />
       </UserProvider> */}
