@@ -33,29 +33,34 @@ import ClickCounterTwo from "./components/ClickCounterTwo";
 import HoverCounterTwo from "./components/HoverCounterTwo";
 import User from "./components/User";
 import CounterTwo from "./components/CounterTwo";
+import ComponentC from "./components/ComponentC";
+import { UserProvider } from "./components/UserContext";
 
 function App() {
   return (
     <div className="App">
-      <CounterTwo
+      <UserProvider value="Suman">
+        <ComponentC />
+      </UserProvider>
+      {/* <CounterTwo
         render={(count, incrementCount) => (
           <ClickCounterTwo
             count={count}
             incrementCount={incrementCount}
           ></ClickCounterTwo>
         )}
-      ></CounterTwo>
-      <CounterTwo
+      ></CounterTwo> */}
+      {/* <CounterTwo
         render={(count, incrementCount) => (
           <HoverCounterTwo
             count={count}
             incrementCount={incrementCount}
           ></HoverCounterTwo>
         )}
-      ></CounterTwo>
+      ></CounterTwo> */}
       {/* <ClickCounterTwo /> */}
       {/* <HoverCounterTwo /> */}
-      <User render={(isLoggedIn) => (isLoggedIn ? "Suman" : "Guest")} />
+      {/* <User render={(isLoggedIn) => (isLoggedIn ? "Suman" : "Guest")} /> */}
       {/* <ClickCounter name="Suman" /> */}
       {/* <HoverCounter name="Suman" /> */}
       {/* <ErrorBoundary>
