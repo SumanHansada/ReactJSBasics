@@ -35,13 +35,15 @@ import User from "./components/User";
 import CounterTwo from "./components/CounterTwo";
 import ComponentC from "./components/ComponentC";
 import { UserProvider } from "./components/UserContext";
+import PostList from "./components/PostList";
 
 function App() {
   return (
     <div className="App">
-      <UserProvider value="Suman">
+      <PostList />
+      {/* <UserProvider value="Suman">
         <ComponentC />
-      </UserProvider>
+      </UserProvider> */}
       {/* <CounterTwo
         render={(count, incrementCount) => (
           <ClickCounterTwo
